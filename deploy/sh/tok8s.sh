@@ -17,4 +17,4 @@ scp -r deploy/deploy.yaml ${SSH_USER}@${SSH_IP}:${DEPLOY_FILE}
 
 echo "[tok8s.4]"
 ssh ${SSH_USER}@${SSH_IP} "kubectl apply -f ${DEPLOY_FILE}"
-echo "[tok8s.5]"
+echo "[tok8s.5] ${SSH_USER}@${SSH_IP} 'kubectl apply -f ${DEPLOY_FILE}'"
