@@ -8,7 +8,7 @@ ENV GO111MODULE on
 RUN cd /go/src/project
 RUN go mod init
 COPY . .
-COPY ./devops/sh/* ./bin/
+#COPY ./devops/sh/* ./bin/
 RUN go build -o ./bin/app ./main.go
 #RUN /data/app/bin/app
 #RUN /go/src/project/bin/app
