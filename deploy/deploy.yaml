@@ -8,7 +8,7 @@ metadata:
     appName: go_project-service
   name: go_project-service
 spec:
-   type: NodePort
+  type: NodePort
   ports:
     - name: go_project-service
       port: 8099    #服务(svc) 访问端口
