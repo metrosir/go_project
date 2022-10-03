@@ -1,6 +1,7 @@
 FROM golang:1.16 as builder
 WORKDIR /go/src/project
 ENV GO111MODULE on
+ENV GOPROXY https://goproxy.cn
 
 #RUN curl https://bootstrap.pypa.io/get-pip.py | python
 #RUN pip install supervisor==3.3.5
