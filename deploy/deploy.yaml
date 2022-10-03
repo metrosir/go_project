@@ -35,7 +35,7 @@ spec:
   selector:
     matchLabels:
       app: go-project
-      appName: nginx-web
+      appName: go-project-web
   replicas: 2
   template:
     metadata:
