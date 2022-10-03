@@ -17,6 +17,7 @@ func main() {
 			"message": "pong",
 		})
 	})
+
 	r.GET("/api/todo", func(c *gin.Context) {
 		params, err := ioutil.ReadAll(c.Request.Body)
 		if err != nil {
