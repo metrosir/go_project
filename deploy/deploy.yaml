@@ -4,19 +4,19 @@ metadata:
   creationTimestamp: null
   namespace: ns-test
   labels:
-    app: go_project-service
-    appName: go_project-service
-  name: go_project-service
+    app: go-project-service
+    appName: go-project-service
+  name: go-project-service
 spec:
   type: NodePort
   ports:
-    - name: go_project-service
+    - name: go-project-service
       port: 8100    #服务(svc) 访问端口
       protocol: TCP
       targetPort: 3001 # pod （容器）端口
       nodePort: 30011 # pod （容器）端口
   selector:
-    app: go_project
+    app: go-project
 status:
   loadBalancer: {}
 
@@ -26,22 +26,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: ns-test
-  name: go_project-deployment
+  name: go-project-deployment
   labels:     # 自定义资源的标签
     app: web2
-    appName: go_project-web2
+    appName: go-project-web2
     version: {{APP_VERSION}}
 spec:
   selector:
     matchLabels:
-      app: go_project
+      app: go-project
       appName: nginx-web
   replicas: 2
   template:
     metadata:
       labels:
-        app: go_project
-        appName: go_project-web
+        app: go-project
+        appName: go-project-web
     spec:
       containers:
         - name: go
