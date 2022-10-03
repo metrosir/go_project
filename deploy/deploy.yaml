@@ -11,7 +11,7 @@ spec:
   type: NodePort
   ports:
     - name: go_project-service
-      port: 8099    #服务(svc) 访问端口
+      port: 8100    #服务(svc) 访问端口
       protocol: TCP
       targetPort: 3001 # pod （容器）端口
       nodePort: 30011 # pod （容器）端口
