@@ -1,12 +1,9 @@
 package main
 
 import (
-	"errors"
-	"fmt"
 	"github.com/DeanThompson/ginpprof"
 	"github.com/gin-gonic/gin"
 	"go_project/pkg/request"
-	"io/ioutil"
 )
 
 func main() {
@@ -19,19 +16,19 @@ func main() {
 	})
 
 	r.GET("/api/todo", func(c *gin.Context) {
-		params, err := ioutil.ReadAll(c.Request.Body)
-		if err != nil {
-			c.JSON(400, gin.H{
-				"message": errors.New("parmas error:" + err.Error()),
-			})
-		}
-		fmt.Println("params:", params)
-		body, err := request.Q("https://www.baidu.com")
-		if err != nil {
-			c.JSON(400, gin.H{
-				"message": errors.New("request error:" + err.Error()),
-			})
-		}
+		//params, err := c.Params.Get("v")
+		//if !err {
+		//	c.JSON(400, gin.H{
+		//		"message": errors.New("parmas error"),
+		//	})
+		//}
+		//fmt.Println("params:", params)
+		body := request.Q("https://www.baidu.com")
+		//if err != nil {
+		//	c.JSON(400, gin.H{
+		//		"message": errors.New("request error:" + err.Error()),
+		//	})
+		//}
 		c.JSON(200, gin.H{
 			"message": body,
 		})
