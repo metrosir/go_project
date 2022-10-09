@@ -33,3 +33,4 @@ pipeline {
         }
     }
 }
+// [jenkins 如何发布k8s项目](http://t.zoukankan.com/huningfei-p-14202592.html)
