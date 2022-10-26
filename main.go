@@ -1,9 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"github.com/DeanThompson/ginpprof"
 	"github.com/gin-gonic/gin"
-	"go_project/pkg/request"
+	"go_project/pkg/round_robin"
 )
 
 func main() {
@@ -23,15 +24,25 @@ func main() {
 		//	})
 		//}
 		//fmt.Println("params:", params)
-		body := request.Q("https://www.baidu.com")
+		//body := request.Q("https://www.baidu.com")
 		//if err != nil {
 		//	c.JSON(400, gin.H{
 		//		"message": errors.New("request error:" + err.Error()),
 		//	})
 		//}
-		c.JSON(200, gin.H{
-			"message": body,
-		})
+		fmt.Println(round_robin.CallPHP())
+		body, err := round_robin.CallPHP()
+		if err != nil {
+			c.JSON(200, gin.H{
+				"error":   err.Error(),
+				"message": body,
+			})
+		} else {
+			c.JSON(200, gin.H{
+				"error":   "",
+				"message": body,
+			})
+		}
 	})
 	r.Run("0.0.0.0:3001")
 }
