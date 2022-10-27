@@ -28,7 +28,7 @@ func init() {
 	if appEnv == "dev" {
 		r.Add([]string{"http://101.35.50.230:30012"})
 	} else {
-		r.Add([]string{"php-project-service.ns-test.svc.cluster.local:8100"})
+		r.Add([]string{"http://php-project-service.ns-test.svc.cluster.local:8100"})
 	}
 	fmt.Println("init: adds config")
 }
